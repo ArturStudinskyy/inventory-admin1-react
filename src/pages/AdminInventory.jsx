@@ -73,7 +73,7 @@ function AdminInventory() {
                     <h1 className={styles.title}>Інвентар</h1>
                 </div>
                 <div className={styles.headerActions}>
-                    <Link className={styles.primaryLink} to="/inventory/new">
+                    <Link className={styles.primaryLink} to="/admin/inventory/new">
                         Додати предмет
                     </Link>
                 </div>
@@ -87,12 +87,15 @@ function AdminInventory() {
                 error={error}
                 renderActions={(item) => (
                     <>
-                        <Link className={styles.actionLink} to={`/inventory/${item.id}`}>
+                        <Link
+                            className={styles.actionLink}
+                            to={`/admin/inventory/${item.id}`}
+                        >
                             Переглянути
                         </Link>
                         <Link
                             className={styles.actionLink}
-                            to={`/inventory/${item.id}/edit`}
+                            to={`/admin/inventory/${item.id}/edit`}
                         >
                             Редагувати
                         </Link>

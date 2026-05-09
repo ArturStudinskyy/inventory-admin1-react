@@ -6,7 +6,7 @@ function AdminInventoryCreate() {
     const navigate = useNavigate()
 
     const handleSuccess = () => {
-        navigate('/inventory')
+        navigate('/admin/inventory')
     }
 
     return (
