@@ -1,28 +1,49 @@
-function InventoryTable({ items }) {
+import styles from './InventoryTable.module.css'
+
+function InventoryTable({ items, isLoading = false, error = '' }) {
     const rows = Array.isArray(items) ? items : []
+    const showEmptyState = !isLoading && !error && rows.length === 0
 
     return (
-        <table>
+        <table className={styles.table}>
             <thead>
                 <tr>
-                    <th>Назва</th>
-                    <th>Опис</th>
-                    <th>Фото</th>
+                    <th className={styles.headerCell}>Назва</th>
+                    <th className={styles.headerCell}>Опис</th>
+                    <th className={styles.headerCell}>Фото</th>
                 </tr>
             </thead>
             <tbody>
-                {rows.length === 0 ? (
+                {isLoading ? (
                     <tr>
-                        <td colSpan={3}>Немає даних</td>
+                        <td className={styles.statusCell} colSpan={3}>
+                            Завантаження...
+                        </td>
+                    </tr>
+                ) : error ? (
+                    <tr>
+                        <td className={styles.statusCell} colSpan={3}>
+                            Помилка: {error}
+                        </td>
+                    </tr>
+                ) : showEmptyState ? (
+                    <tr>
+                        <td className={styles.statusCell} colSpan={3}>
+                            Немає даних
+                        </td>
                     </tr>
                 ) : (
                     rows.map((item) => (
                         <tr key={item.id ?? item.name}>
-                            <td>{item.name}</td>
-                            <td>{item.description}</td>
-                            <td>
+                            <td className={styles.cell}>{item.name}</td>
+                            <td className={styles.cell}>{item.description}</td>
+                            <td className={styles.cell}>
                                 {item.photoUrl ? (
-                                    <img src={item.photoUrl} alt={item.name} width="80" />
+                                    <img
+                                        src={item.photoUrl}
+                                        alt={item.name}
+                                        className={styles.photo}
+                                    />
                                 ) : (
                                     "-"
                                 )}

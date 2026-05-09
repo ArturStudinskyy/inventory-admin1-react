@@ -1,0 +1,36 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+.headerCell {
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.cell {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+    color: #1f2937;
+}
+
+.statusCell {
+    padding: 20px 14px;
+    text-align: center;
+    color: #6b7280;
+}
+
+.photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
