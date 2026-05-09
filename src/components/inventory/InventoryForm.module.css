@@ -1,0 +1,51 @@
+.form {
+    display: grid;
+    gap: 16px;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+}
+
+.label {
+    font-weight: 600;
+    color: #111827;
+}
+
+.input,
+.textarea,
+.fileInput {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #111827;
+    background: #ffffff;
+}
+
+.textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.error {
+    color: #b91c1c;
+    font-size: 13px;
+}
+
+.submitError {
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.button {
+    align-self: flex-start;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: 600;
+    background: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+}

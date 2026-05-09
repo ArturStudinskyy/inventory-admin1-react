@@ -1,6 +1,9 @@
 .page {
     display: grid;
     gap: 16px;
+    padding: 16px;
+    background: #f8fafc;
+    border-radius: 12px;
 }
 
 .header {
@@ -8,12 +11,28 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    margin: 0 0 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    font-weight: 600;
 }
 
 .title {
     margin: 0;
     font-size: 24px;
     color: #111827;
+}
+
+.headerActions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
 .primaryLink {
@@ -23,6 +42,7 @@
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
 }
 
 .actionLink {
@@ -44,4 +64,19 @@
 .error {
     color: #dc2626;
     font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .page {
+        padding: 12px;
+    }
+
+    .header {
+        align-items: flex-start;
+    }
+
+    .headerActions {
+        width: 100%;
+        justify-content: flex-start;
+    }
 }

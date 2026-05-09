@@ -1,0 +1,13 @@
+.page {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    color: #111827;
+}

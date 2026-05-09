@@ -26,8 +26,10 @@ function ConfirmModal({
                 className={styles.modal}
                 onClick={(event) => event.stopPropagation()}
             >
-                <h2 id="confirm-modal-title">{title}</h2>
-                <p>{message}</p>
+                <h2 className={styles.title} id="confirm-modal-title">
+                    {title}
+                </h2>
+                <p className={styles.message}>{message}</p>
                 <div className={styles.actions}>
                     <button
                         type="button"

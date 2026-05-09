@@ -44,9 +44,9 @@ function InventoryTable({
                             <td className={styles.cell}>{item.inventory_name}</td>
                             <td className={styles.cell}>{item.description}</td>
                             <td className={styles.cell}>
-                                {item.photo_url ? (
+                                {item.photo_url || item.photo ? (
                                     <img
-                                        src={item.photo_url}
+                                        src={item.photo_url ?? item.photo}
                                         alt={item.inventory_name}
                                         className={styles.photo}
                                     />

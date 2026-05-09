@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { inventoryApi } from '../../services/inventoryApi'
+import styles from './InventoryForm.module.css'
 
 const DEFAULT_VALUES = {
     inventory_name: '',
@@ -83,15 +84,22 @@ function InventoryForm({ onSuccess, submitLabel = 'Додати' }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <div>
-                <label htmlFor="inventory-name">Назва</label>
+        <form
+            className={styles.form}
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+        >
+            <div className={styles.field}>
+                <label className={styles.label} htmlFor="inventory-name">
+                    Назва
+                </label>
                 <input
                     id="inventory-name"
                     name="inventory_name"
                     type="text"
                     value={values.inventory_name}
                     onChange={handleChange}
+                    className={styles.input}
                     aria-invalid={Boolean(errors.inventory_name)}
                     aria-describedby={
                         errors.inventory_name ? 'inventory-name-error' : undefined
@@ -99,17 +107,22 @@ function InventoryForm({ onSuccess, submitLabel = 'Додати' }) {
                     disabled={isSubmitting}
                 />
                 {errors.inventory_name ? (
-                    <div id="inventory-name-error">{errors.inventory_name}</div>
+                    <div className={styles.error} id="inventory-name-error">
+                        {errors.inventory_name}
+                    </div>
                 ) : null}
             </div>
 
-            <div>
-                <label htmlFor="inventory-description">Опис</label>
+            <div className={styles.field}>
+                <label className={styles.label} htmlFor="inventory-description">
+                    Опис
+                </label>
                 <textarea
                     id="inventory-description"
                     name="description"
                     value={values.description}
                     onChange={handleChange}
+                    className={styles.textarea}
                     aria-invalid={Boolean(errors.description)}
                     aria-describedby={
                         errors.description
@@ -119,30 +132,39 @@ function InventoryForm({ onSuccess, submitLabel = 'Додати' }) {
                     disabled={isSubmitting}
                 />
                 {errors.description ? (
-                    <div id="inventory-description-error">{errors.description}</div>
+                    <div className={styles.error} id="inventory-description-error">
+                        {errors.description}
+                    </div>
                 ) : null}
             </div>
 
-            <div>
-                <label htmlFor="inventory-photo">Фото</label>
+            <div className={styles.field}>
+                <label className={styles.label} htmlFor="inventory-photo">
+                    Фото
+                </label>
                 <input
                     id="inventory-photo"
                     name="photo"
                     type="file"
                     accept="image/*"
                     onChange={handleFileChange}
+                    className={styles.fileInput}
                     aria-invalid={Boolean(errors.photo)}
                     aria-describedby={errors.photo ? 'inventory-photo-error' : undefined}
                     disabled={isSubmitting}
                 />
                 {errors.photo ? (
-                    <div id="inventory-photo-error">{errors.photo}</div>
+                    <div className={styles.error} id="inventory-photo-error">
+                        {errors.photo}
+                    </div>
                 ) : null}
             </div>
 
-            {submitError ? <div>{submitError}</div> : null}
+            {submitError ? (
+                <div className={styles.submitError}>{submitError}</div>
+            ) : null}
 
-            <button type="submit" disabled={isSubmitting}>
+            <button type="submit" className={styles.button} disabled={isSubmitting}>
                 {isSubmitting ? 'Збереження...' : submitLabel}
             </button>
         </form>

@@ -62,7 +62,7 @@ function AdminInventoryEdit() {
                     inventoryName: data.inventory_name ?? data.name ?? '',
                     description: data.description ?? '',
                 })
-                setPhotoUrl(data.photoUrl ?? data.photo_url ?? '')
+                setPhotoUrl(data.photoUrl ?? data.photo_url ?? data.photo ?? '')
             })
             .catch((error) => {
                 if (!isActive) {

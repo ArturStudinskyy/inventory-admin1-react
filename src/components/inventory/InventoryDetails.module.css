@@ -1,6 +1,10 @@
 .wrapper {
     display: grid;
     gap: 16px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
 }
 
 .title {
@@ -19,5 +23,7 @@
 
 .description {
     margin: 0;
-    color: #374151;
+    color: #1f2937;
+    font-size: 16px;
+    line-height: 1.5;
 }

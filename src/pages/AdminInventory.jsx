@@ -68,10 +68,15 @@ function AdminInventory() {
     return (
         <section className={styles.page}>
             <div className={styles.header}>
-                <h1 className={styles.title}>Інвентар</h1>
-                <Link className={styles.primaryLink} to="/inventory/new">
-                    Додати інвентар
-                </Link>
+                <div>
+                    <p className={styles.badge}>Адмін панель інвентаря</p>
+                    <h1 className={styles.title}>Інвентар</h1>
+                </div>
+                <div className={styles.headerActions}>
+                    <Link className={styles.primaryLink} to="/inventory/new">
+                        Додати предмет
+                    </Link>
+                </div>
             </div>
 
             {deleteError ? <div className={styles.error}>{deleteError}</div> : null}
@@ -107,7 +112,9 @@ function AdminInventory() {
                 title="Видалити інвентар"
                 message={
                     pendingDelete
-                        ? `Видалити "${pendingDelete.inventory_name}"?`
+                        ? pendingDelete.inventory_name
+                            ? `Видалити "${pendingDelete.inventory_name}"?`
+                            : 'Видалити цей предмет?'
                         : undefined
                 }
                 confirmLabel={isDeleting ? 'Видалення...' : 'Видалити'}
