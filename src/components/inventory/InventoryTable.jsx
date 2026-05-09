@@ -1,6 +1,11 @@
 import styles from './InventoryTable.module.css'
 
-function InventoryTable({ items, isLoading = false, error = '' }) {
+function InventoryTable({
+    items,
+    isLoading = false,
+    error = '',
+    renderActions,
+}) {
     const rows = Array.isArray(items) ? items : []
     const showEmptyState = !isLoading && !error && rows.length === 0
 
@@ -11,42 +16,48 @@ function InventoryTable({ items, isLoading = false, error = '' }) {
                     <th className={styles.headerCell}>Назва</th>
                     <th className={styles.headerCell}>Опис</th>
                     <th className={styles.headerCell}>Фото</th>
+                    <th className={styles.headerCell}>Дії</th>
                 </tr>
             </thead>
             <tbody>
                 {isLoading ? (
                     <tr>
-                        <td className={styles.statusCell} colSpan={3}>
+                        <td className={styles.statusCell} colSpan={4}>
                             Завантаження...
                         </td>
                     </tr>
                 ) : error ? (
                     <tr>
-                        <td className={styles.statusCell} colSpan={3}>
+                        <td className={styles.statusCell} colSpan={4}>
                             Помилка: {error}
                         </td>
                     </tr>
                 ) : showEmptyState ? (
                     <tr>
-                        <td className={styles.statusCell} colSpan={3}>
+                        <td className={styles.statusCell} colSpan={4}>
                             Немає даних
                         </td>
                     </tr>
                 ) : (
                     rows.map((item) => (
-                        <tr key={item.id ?? item.name}>
-                            <td className={styles.cell}>{item.name}</td>
+                        <tr key={item.id ?? item.inventory_name}>
+                            <td className={styles.cell}>{item.inventory_name}</td>
                             <td className={styles.cell}>{item.description}</td>
                             <td className={styles.cell}>
-                                {item.photoUrl ? (
+                                {item.photo_url ? (
                                     <img
-                                        src={item.photoUrl}
-                                        alt={item.name}
+                                        src={item.photo_url}
+                                        alt={item.inventory_name}
                                         className={styles.photo}
                                     />
                                 ) : (
                                     "-"
                                 )}
+                            </td>
+                            <td className={styles.cell}>
+                                <div className={styles.actions}>
+                                    {renderActions ? renderActions(item) : null}
+                                </div>
                             </td>
                         </tr>
                     ))

@@ -1,19 +1,18 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-
-const InventoryListPage = () => <div>Inventory list</div>
-const InventoryCreatePage = () => <div>Create inventory item</div>
-const InventoryEditPage = () => <div>Edit inventory item</div>
-const InventoryDetailsPage = () => <div>Inventory details</div>
+import AdminInventory from './pages/AdminInventory'
+import AdminInventoryCreate from './pages/AdminInventoryCreate'
+import AdminInventoryDetails from './pages/AdminInventoryDetails'
+import AdminInventoryEdit from './pages/AdminInventoryEdit'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/inventory" replace />} />
-        <Route path="/inventory" element={<InventoryListPage />} />
-        <Route path="/inventory/new" element={<InventoryCreatePage />} />
-        <Route path="/inventory/:id" element={<InventoryDetailsPage />} />
-        <Route path="/inventory/:id/edit" element={<InventoryEditPage />} />
+        <Route path="/inventory" element={<AdminInventory />} />
+        <Route path="/inventory/new" element={<AdminInventoryCreate />} />
+        <Route path="/inventory/:id" element={<AdminInventoryDetails />} />
+        <Route path="/inventory/:id/edit" element={<AdminInventoryEdit />} />
         <Route path="*" element={<Navigate to="/inventory" replace />} />
       </Routes>
     </BrowserRouter>

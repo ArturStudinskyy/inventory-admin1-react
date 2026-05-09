@@ -1,0 +1,23 @@
+.wrapper {
+    display: grid;
+    gap: 16px;
+}
+
+.title {
+    font-size: 24px;
+    margin: 0;
+    color: #111827;
+}
+
+.photo {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    object-fit: cover;
+}
+
+.description {
+    margin: 0;
+    color: #374151;
+}

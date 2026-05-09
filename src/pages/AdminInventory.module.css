@@ -1,0 +1,47 @@
+.page {
+    display: grid;
+    gap: 16px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    color: #111827;
+}
+
+.primaryLink {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.actionLink {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dangerButton {
+    border: none;
+    background: #dc2626;
+    color: #ffffff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.error {
+    color: #dc2626;
+    font-weight: 600;
+}

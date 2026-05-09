@@ -14,10 +14,6 @@ function validateDetails(values) {
         errors.inventoryName = 'Вкажіть назву'
     }
 
-    if (!values.description.trim()) {
-        errors.description = 'Вкажіть опис'
-    }
-
     return errors
 }
 

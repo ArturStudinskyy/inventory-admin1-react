@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { inventoryApi } from '../../services/inventoryApi'
 
 const DEFAULT_VALUES = {
-    name: '',
+    inventory_name: '',
     description: '',
     photo: null,
 }
@@ -10,12 +10,8 @@ const DEFAULT_VALUES = {
 function validate(values) {
     const errors = {}
 
-    if (!values.name.trim()) {
-        errors.name = 'Вкажіть назву'
-    }
-
-    if (!values.description.trim()) {
-        errors.description = 'Вкажіть опис'
+    if (!values.inventory_name.trim()) {
+        errors.inventory_name = 'Вкажіть назву'
     }
 
     if (values.photo && !values.photo.type.startsWith('image/')) {
@@ -64,7 +60,7 @@ function InventoryForm({ onSuccess, submitLabel = 'Додати' }) {
 
         try {
             const formData = new FormData()
-            formData.append('name', values.name.trim())
+            formData.append('inventory_name', values.inventory_name.trim())
             formData.append('description', values.description.trim())
 
             if (values.photo) {
@@ -92,16 +88,18 @@ function InventoryForm({ onSuccess, submitLabel = 'Додати' }) {
                 <label htmlFor="inventory-name">Назва</label>
                 <input
                     id="inventory-name"
-                    name="name"
+                    name="inventory_name"
                     type="text"
-                    value={values.name}
+                    value={values.inventory_name}
                     onChange={handleChange}
-                    aria-invalid={Boolean(errors.name)}
-                    aria-describedby={errors.name ? 'inventory-name-error' : undefined}
+                    aria-invalid={Boolean(errors.inventory_name)}
+                    aria-describedby={
+                        errors.inventory_name ? 'inventory-name-error' : undefined
+                    }
                     disabled={isSubmitting}
                 />
-                {errors.name ? (
-                    <div id="inventory-name-error">{errors.name}</div>
+                {errors.inventory_name ? (
+                    <div id="inventory-name-error">{errors.inventory_name}</div>
                 ) : null}
             </div>
 
@@ -113,7 +111,11 @@ function InventoryForm({ onSuccess, submitLabel = 'Додати' }) {
                     value={values.description}
                     onChange={handleChange}
                     aria-invalid={Boolean(errors.description)}
-                    aria-describedby={errors.description ? 'inventory-description-error' : undefined}
+                    aria-describedby={
+                        errors.description
+                            ? 'inventory-description-error'
+                            : undefined
+                    }
                     disabled={isSubmitting}
                 />
                 {errors.description ? (
